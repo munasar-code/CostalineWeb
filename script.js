@@ -14,11 +14,18 @@ const messageCounter = document.getElementById("message-counter");
 
 
 function validateText(input) {
+    const pattern = /^[A-Za-z\s]+$/; // only letters and spaces
+
     if (input.value.trim() === "") {
         input.classList.add("invalid");
         input.classList.remove("valid");
         return false;
+    } else if (!pattern.test(input.value)) {
+        input.classList.add("invalid");
+        input.classList.remove("valid");
+        return false;
     }
+
     input.classList.add("valid");
     input.classList.remove("invalid");
     return true;

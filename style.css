@@ -1,4 +1,3 @@
-/* ===== GLOBAL ===== */
 html {
   scroll-behavior: smooth;
 }
@@ -10,7 +9,13 @@ html {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* ===== HEADER / NAVBAR ===== */
+body {
+  line-height: 1.7;
+  background-color: #f9f9f9;
+  color: #0d1b2a;
+}
+
+
 header {
   position: fixed;
   top: 0;
@@ -47,36 +52,41 @@ nav .nav-links a:hover {
   transform: scale(1.1);
 }
 
-/* ===== SECTIONS ===== */
+
 section {
-  height: 100vh;
+  min-height: 100vh;
+  padding: 100px 50px 50px 50px; 
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 80px 50px 50px 50px; /* top space for navbar */
   text-align: center;
-  color: #0d1b2a;
 }
 
 section#home {
   background: linear-gradient(rgba(13,27,42,0.7), rgba(13,27,42,0.7)),
-              url('costaline\ diyaarad.webp') center/cover no-repeat;
+              url('costaline diyaarad.webp') center/cover no-repeat;
   color: white;
 }
 
-.section-content h1, .section-content h2 {
+.section-content h1,
+.section-content h2 {
   margin-bottom: 20px;
   font-size: 2.5rem;
+}
+
+.section-content h3 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
 }
 
 .section-content p {
   font-size: 1.2rem;
   line-height: 1.8;
   max-width: 800px;
-  margin: 0 auto 30px auto;
+  margin: 0 auto 25px auto;
 }
 
-/* ===== BUTTON ===== */
+
 .btn {
   display: inline-block;
   padding: 12px 30px;
@@ -87,6 +97,7 @@ section#home {
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
+  text-align: center;
 }
 
 .btn:hover {
@@ -94,22 +105,25 @@ section#home {
   transform: scale(1.05);
 }
 
-/* ===== SERVICE CARDS ===== */
+
 .service-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 25px;
-  margin-top: 30px;
+  gap: 30px;
+  margin-top: 40px;
 }
 
 .card {
   background-color: #f1faee;
   border-radius: 10px;
   padding: 25px;
-  width: 250px;
+  width: 280px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .card:hover {
@@ -117,16 +131,24 @@ section#home {
   box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* ===== CONTACT FORM ===== */
+.card p {
+  margin-bottom: 15px;
+}
+
 form {
   max-width: 700px;
   margin: 0 auto;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .input-group {
   display: flex;
   gap: 20px;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 input, textarea {
@@ -138,74 +160,84 @@ input, textarea {
 }
 
 textarea {
-  resize: none;
-  height: 150px;
+  resize: vertical;
+  min-height: 150px;
 }
 
-/* ===== FEEDBACK MESSAGES ===== */
+
 #form-feedback {
   margin-top: 15px;
   font-weight: bold;
   font-size: 1rem;
 }
 
-#form-feedback.error {
-  color: red;
-}
-
-#form-feedback.success {
-  color: green;
-}
-
-/* Real-time validation borders */
-input.invalid, textarea.invalid {
-  border-color: red;
-}
-
-input.valid, textarea.valid {
-  border-color: green;
-}
-
-/* ===== RESPONSIVE DESIGN ===== */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-  }
-  .nav-links {
-    margin-top: 10px;
-  }
-  .input-group {
-    flex-direction: column;
-  }
-  .service-cards {
-    flex-direction: column;
-    gap: 20px;
-  }
-}
-.valid {
-  border: 2px solid green;
-}
-
-.invalid {
-  border: 2px solid red;
-}
-input.valid, textarea.valid {
-  border: 2px solid green;
-}
-
-input.invalid, textarea.invalid {
-  border: 2px solid red;
-}
-#phone-feedback {
+#phone-feedback, #message-feedback {
   font-size: 0.85rem;
   color: red;
   margin-top: 4px;
   display: block;
 }
+
 #phone-counter,
 #message-counter {
   font-size: 0.8rem;
   color: gray;
   margin-top: 2px;
   display: block;
+}
+
+
+input.invalid, textarea.invalid {
+  border: 2px solid red;
+}
+
+input.valid, textarea.valid {
+  border: 2px solid green;
+}
+
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 15px 0;
+}
+
+ul li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #e63946;
+  font-size: 1.2rem;
+}
+
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    padding: 15px 20px;
+  }
+
+  .nav-links {
+    margin-top: 10px;
+  }
+
+  .input-group {
+    flex-direction: column;
+  }
+
+  .service-cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  section {
+    padding: 100px 20px 50px 20px;
+  }
 }
